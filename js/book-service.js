@@ -2,7 +2,6 @@
 
 var gBooks;
 var gSortInAscending = true;
-var gImgName = 0;
 var gCurrentPage = 1;
 
 const KEY = 'books';
@@ -21,7 +20,7 @@ function _createBook(title, price) {
         title: title,
         price: price,
         desc: makeLorem(),
-        img: gImgName + 1,
+        img: getRandomIntInclusive(0, 5),
         rating: 0
     };
 }
