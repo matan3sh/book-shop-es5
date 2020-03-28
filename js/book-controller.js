@@ -25,7 +25,7 @@ function renderBooks() {
                     <td>
                         <button class="actions-btn read" onclick=onReadBook(${book.id})>Read</button>
                         <button class="actions-btn update" onclick=onUpdateBook(${book.id})>Update</button>
-                        <button class="actions-btn delete" onclick="onDeleteBook(event,${book.id})">Delete</button>
+                        <button class="actions-btn delete" onclick="onDeleteBook(${book.id})">Delete</button>
                     </td>
                 </tr>`
     );
