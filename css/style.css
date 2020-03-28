@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+.container {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.display {
+  font-size: 50px;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #9c9797;
+}
+
+.book-form {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.form-group {
+  margin: 5px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 2px 0;
+}
+
+.btn {
+  margin-top: 5px;
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  background-color: #0c8bad;
+  border: 1px solid #d4d0d0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+/* Table of Books */
+.table,
+td {
+  text-align: center;
+  margin-top: 2em;
+  padding: 10px;
+}
+
+th {
+  background-color: #258cba;
+  color: #fff;
+  border-radius: 3px;
+  border-bottom: 1px solid #ddd;
+}
+
+.th-title,
+.th-price {
+  cursor: pointer;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Actions Buttons */
+.actions-btn {
+  color: #fff;
+  width: 80px;
+  height: 20%;
+  border: 1px solid #d4d0d0;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.actions-btn:hover {
+  opacity: 0.6;
+}
+
+/* Alert Modal */
+.modal {
+  background: #242333;
+  display: none;
+  position: fixed;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 180px;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal > p {
+  margin: 0;
+}
+
+/* Update Modal */
+.update-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.update-book-form {
+  background-color: #f4f4f4;
+  margin: 200px auto;
+  padding: 10px 20px;
+  width: 250px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.form-group {
+  padding: 5px;
+}
+
+.close-modal-btn {
+  color: rgb(0, 0, 0);
+  float: right;
+  font-size: 28px;
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.no-books-modal {
+  background: #ffffff;
+  position: fixed;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 570px;
+  height: 370px;
+  padding: 10px 25px;
+  text-align: center;
+}
+
+/* Read Modal */
+.read-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 10% auto;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.modal-read--header h2,
+.modal-read-footer h3 {
+  margin: 0;
+}
+
+.modal-read-header {
+  background: #258cba;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+}
+
+.modal-body > img {
+  margin: auto auto;
+  padding: 0 10px;
+}
+
+.modal-footer {
+  background: #258cba;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-footer span {
+  float: left;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.rate-btn {
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 60px;
+  height: 20px;
+  color: #fff;
+  background-color: #39393a;
+  border: 1px solid #d4d0d0;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.save-rate-success {
+  display: none;
+  color: rgb(80, 0, 0);
+  margin-left: 10px;
+}
+
+.rating {
+  background-color: #fff;
+  text-align: center;
+  width: 55px;
+  height: 5px;
+  float: left;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Helpers */
+.primary {
+  color: #258cba;
+}
+
+.read {
+  background-color: #206ed2;
+}
+
+.update {
+  background-color: #f5a615;
+}
+
+.delete {
+  background-color: #d05448;
+}
+
+.success {
+  background-color: #52d35f;
+}
+
+.save {
+  background-color: #39393a;
+}

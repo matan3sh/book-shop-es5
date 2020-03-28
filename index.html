@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>MyBook Shop</title>
+  </head>
+  <body onload="onInit()">
+    <div class="container">
+      <h1 class="display">
+        <img src="img/logo.png" alt="book-shop-logo" height="60px" /> My<span class="primary">Book</span>Shop
+      </h1>
+
+      <form class="book-form">
+        <div class="form-group">
+          <input type="text" id="title" class="form-control" placeholder="Book Title" />
+        </div>
+        <div class="form-group">
+          <input type="text" id="price" class="form-control" placeholder="Book Price"/>
+        </div>
+        <button onclick="onAddBook(event)" class="btn">Add Book</button>
+      </form>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th class="th-title" onclick="onSort(this)">TITLE</th>
+            <th class="th-price" onclick="onSort(this)">PRICE</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody class="book-list"></tbody>
+      </table>
+    </div>
+    
+    <div class="pagination"></div>
+    <div class="modal"><p></p></div>
+    <div class="update-modal"></div>
+    <div class="no-books-modal"></div>
+    <div class="read-modal"></div>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/book-controller.js"></script>
+  </body>
+</html>
