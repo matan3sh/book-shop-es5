@@ -6,7 +6,6 @@ function onInit() {
 }
 
 function booksToDisplay() {
-    renderBooks();
     if (!getBooks().length) {
         document.querySelector('.no-books-modal').innerHTML = 'There are no books in store';
         document.querySelector('.no-books-modal').style.display = 'block';
@@ -46,7 +45,7 @@ function onAddBook() {
     }
 }
 
-function onDeleteBook(event, bookId) {
+function onDeleteBook(bookId) {
     if (getCurrentBooks().length === 1) onChangePage(getCurrentPage() - 1);
     deleteBook(bookId);
     showAlert('success');
