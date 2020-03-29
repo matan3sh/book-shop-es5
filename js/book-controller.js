@@ -10,7 +10,7 @@ function booksToDisplay() {
         document.querySelector('.no-books-modal').innerHTML = 'There are no books in store';
         document.querySelector('.no-books-modal').style.display = 'block';
     } else {
-        document.querySelector('.no-books-modal').style.display = 'none';
+        onCloseModal()
         renderBooks();
     }
 }
@@ -53,26 +53,24 @@ function onDeleteBook(bookId) {
 }
 
 function onUpdateBook(bookId) {
+    var book = getBookById(bookId);
     var strHtml = ` <div class="update-book-form">
                         <div class="modal-header">
                             <span onclick="onCloseModal()" class="close-modal-btn">&times;</span>
                          </div>
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control update-title" />
+                            <input type="text" name="title" class="form-control update-title" value="${book.title}" />
                         </div>
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <input type="text" name="price" class="form-control update-price" />
+                            <input type="text" name="price" class="form-control update-price" value="${book.price}" />
                         </div>
                         <button onclick="onSaveBook(${bookId})" class="btn save">Save</button>
                     </div> 
     `;
     document.querySelector('.update-modal').innerHTML = strHtml;
     document.querySelector('.update-modal').style.display = 'block';
-    var book = getBookById(bookId);
-    document.querySelector('input[name="title"]').value = book.title;
-    document.querySelector('input[name="price"]').value = book.price;
 }
 
 function onSaveBook(bookId) {
@@ -103,7 +101,7 @@ function onReadBook(bookId) {
                         </div>
                         <div class="modal-footer">
                             <span>Your Rate: </span>
-                            <input type="number" name="rating" class="rating" value="${book.rating}">
+                            <input type="number" step="1" max="10" min="0" name="rating" class="rating" value="${book.rating}">
                             <button class="rate-btn" onclick="onRateBook()">Save</button>
                             <span class="save-rate-success"></span>
                             <h3>Price: ${book.price}$</h3>
@@ -157,6 +155,7 @@ function showAlert(message) {
 }
 
 function onCloseModal() {
+    document.querySelector('.no-books-modal').style.display = 'none';
     document.querySelector('.update-modal').style.display = 'none';
     document.querySelector('.read-modal').style.display = 'none';
 }

@@ -32,7 +32,7 @@ function addBook(title, price) {
 }
 
 function deleteBook(bookId) {
-    var bookIdx = gBooks.findIndex(book => bookId === book.id);
+    var bookIdx = getBookById(bookId);
     gBooks.splice(bookIdx, 1);
     _saveCarsToStorage();
 }
